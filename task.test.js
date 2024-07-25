@@ -5,4 +5,9 @@ describe('StringCalculator', () => {
         const calculator = new StringCalculator();
         expect(calculator.add("")).toBe(0);
     });
+
+    test('should return 6 for 1,2,3', () => {
+        const calculator = new StringCalculator();
+        expect(calculator.add("1,2,3")).toBe(6);
+    });
 });
