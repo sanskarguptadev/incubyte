@@ -6,8 +6,23 @@ describe('StringCalculator', () => {
         expect(calculator.add("")).toBe(0);
     });
 
-    test('should return 6 for 1,2,3', () => {
+    test('should return the sum for a string with multiple comma-separated numbers', () => {
         const calculator = new StringCalculator();
         expect(calculator.add("1,2,3")).toBe(6);
+    });
+
+    test('should return the sum for a string with a custom delimiter', () => {
+        const calculator = new StringCalculator();
+        expect(calculator.add("//;\n1;2")).toBe(3);
+    });
+
+    test('should throw an error for a string with negative numbers', () => {
+        const calculator = new StringCalculator();
+        expect(() => calculator.add("1,-2,3")).toThrow("negative numbers not allowed: -2");
+    });
+
+    test('should throw an error listing all negative numbers', () => {
+        const calculator = new StringCalculator();
+        expect(() => calculator.add("1,-2,-3")).toThrow("negative numbers not allowed: -2, -3");
     });
 });
