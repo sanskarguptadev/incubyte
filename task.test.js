@@ -11,6 +11,11 @@ describe('StringCalculator', () => {
         expect(calculator.add("1,2,3")).toBe(6);
     });
 
+    test('should return 1 for a string with a single number', () => {
+        const calculator = new StringCalculator();
+        expect(calculator.add("1")).toBe(1);
+    });
+
     test('should return the sum for a string with a custom delimiter', () => {
         const calculator = new StringCalculator();
         expect(calculator.add("//;\n1;2")).toBe(3);
